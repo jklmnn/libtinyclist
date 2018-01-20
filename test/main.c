@@ -40,7 +40,7 @@ int main(void)
     printf("list of size %u\n", list_length(list));
     
     printf("delete list\n");
-    //list_delete(list);
+    list_delete(list);
 
     return 0;
 }
