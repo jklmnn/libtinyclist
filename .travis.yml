@@ -1,0 +1,12 @@
+sudo: false
+language: c
+apt:
+    packages:
+        - cmake
+        - valgrind
+        - gcc
+script:
+    - cmake .
+    - make
+    - make test
+    - valgrind --leak-check=full --error-exitcode=1 ./test_list

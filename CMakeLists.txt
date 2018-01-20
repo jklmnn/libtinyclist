@@ -13,7 +13,7 @@ set (GCC_STRICT_WARNINGS "-Wall -Wextra -Wfloat-equal -Wundef \
 -Wwrite-strings -Waggregate-return -Wcast-qual -Wswitch-default -Wswitch-enum \
 -Wconversion -Wunreachable-code -Winit-self -Wuninitialized -Werror")
 
-include_directories("${PROJECT_BINARY_DIR}")
+include_directories("include")
 
 add_library(tinyclist SHARED src/list.c)
 set_target_properties(tinyclist PROPERTIES
@@ -21,3 +21,13 @@ set_target_properties(tinyclist PROPERTIES
     VERSION ${VERSION_MAJ}.${VERSION_MIN}.${VERSION_FIX}
     SOVERSION 1
     PUBLIC_HEADER src/list.h)
+
+add_executable(test_list test/main.c)
+set_target_properties(test_list PROPERTIES
+    COMPILE_FLAGS ${GCC_STRICT_WARNINGS})
+target_link_libraries(test_list tinyclist)
+
+include(CTest)
+enable_testing()
+
+add_test(test test_list)
