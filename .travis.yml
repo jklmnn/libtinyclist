@@ -1,10 +1,11 @@
 sudo: false
 language: c
-apt:
-    packages:
-        - cmake
-        - valgrind
-        - gcc
+addons:
+    apt:
+        packages:
+            - cmake
+            - valgrind
+            - gcc
 script:
     - cmake .
     - make
