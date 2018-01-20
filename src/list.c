@@ -14,7 +14,7 @@ list_t list_new(void)
     return l;
 }
 
-list_t list_append(list_t l, void* c, size_t s)
+list_t list_append(list_t l, void* c, unsigned s)
 {
     if(!(l && c))
         return 0;
@@ -55,7 +55,7 @@ void list_remove(list_t l, list_t e)
     }
 }
 
-list_t list_find(list_t l, void* c, size_t s)
+list_t list_find(list_t l, void* c, unsigned s)
 {
     if(!(l && c))
         return 0;
@@ -69,7 +69,7 @@ list_t list_find(list_t l, void* c, size_t s)
     return 0;
 }
 
-list_t list_foreach(list_t l, int(*func)(list_t*, size_t, void*), void *arg)
+list_t list_foreach(list_t l, int(*func)(list_t*, unsigned, void*), void *arg)
 {
     if(!(l && func))
         return 0;
@@ -83,9 +83,9 @@ list_t list_foreach(list_t l, int(*func)(list_t*, size_t, void*), void *arg)
     return 0;
 }
 
-size_t list_length(list_t l)
+unsigned list_length(list_t l)
 {
-    size_t len = 0;
+    unsigned len = 0;
     if(!l)
         return 0;
 
