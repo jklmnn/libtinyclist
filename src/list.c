@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "list.h"
+#include <list.h>
 
 list_t list_new(void)
 {
